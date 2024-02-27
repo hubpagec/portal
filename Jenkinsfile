@@ -4,7 +4,7 @@ pipeline {
     stages('Construção da imagem'){
         stage('Checkout Source') {
             steps{
-                git url: 'https://github.com/hubpagec/pass_portal', branch: 'master'
+                git url: 'https://github.com/hubpagec/portal', branch: 'master'
             }
         }
         stage('Build Docker image') {
