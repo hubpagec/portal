@@ -10,7 +10,7 @@ pipeline {
         stage('Build Docker image') {
             steps{
                 script{
-                    dockerapp = docker.build("devops/portal:${env.BUILD}",
+                    dockerapp = docker.build("hubpagec/portal:${env.BUILD}",
                         '-f ./Dockerfile .')
                 }
 
@@ -19,7 +19,7 @@ pipeline {
         stage('Push Docker Image') {
             steps{
                 script{
-                    docker.withRegistry('http://192.168.3.138', 'harbor'){
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub'){
                         dockerapp.push('latest')
                         dockerapp.push("${env.BUILD_ID}")
                     }
