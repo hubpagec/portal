@@ -11,7 +11,7 @@ pipeline {
             steps{
                 script{
                     dockerapp = docker.build("devops/portal:${env.BUILD}",
-                        '-f ./Dokerfile .')
+                        '-f ./Dockerfile .')
                 }
 
             }
