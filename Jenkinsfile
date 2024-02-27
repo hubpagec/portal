@@ -10,7 +10,7 @@ pipeline {
         stage('Build Docker image') {
             steps{
                 script{
-                    dockerapp = docker.build("devops/portal:${env.BUILD}",
+                    dockerapp = docker.build("hubpagec/portal:${env.BUILD}",
                         '-f ./Dockerfile .')
                 }
 
