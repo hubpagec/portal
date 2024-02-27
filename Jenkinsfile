@@ -19,7 +19,7 @@ pipeline {
         stage('Push Docker Image') {
             steps{
                 script{
-                    docker.withRegistry('http://192.168.3.138:80', 'harbor'){
+                    docker.withRegistry('http://192.168.3.138', 'harbor'){
                         dockerapp.push('latest')
                         dockerapp.push("${env.BUILD_ID}")
                     }
